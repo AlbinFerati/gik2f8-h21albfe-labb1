@@ -10,10 +10,10 @@ getAll().then((apiBooks) => {
 
 bookList = JSON.parse(localStorage.getItem("bookList"));
 
-searchField.addEventListener("keyup", (e) =>
+searchField.addEventListener("keyup", (event) =>
   renderBookList(
     bookList.filter(({ title, author }) => {
-      const searchTerm = e.target.value.toLowerCase();
+      const searchTerm = event.target.value.toLowerCase();
       return (
         title.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0 ||
         author.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0
@@ -33,8 +33,8 @@ function renderBookList(index) {
     searchField.value &&
     root.insertAdjacentHTML("beforeend", BookList(index));
   const register = document.querySelectorAll(".book-list__item");
-  register.forEach((item) => {
-    item.addEventListener("mouseover", (event) => {
+  register.forEach((bar) => {
+    bar.addEventListener("mouseover", (event) => {
       let id;
       if (event.target.parentElement.id) {
         id = event.target.parentElement.id;
@@ -55,11 +55,11 @@ function renderBookList(index) {
       root.insertAdjacentHTML("beforeend", bookInfo);
     });
 
-    item.addEventListener("mouseout", (event) => {
+    bar.addEventListener("mouseout", (event) => {
       bookInfo.remove();
     });
-    const callBook = (id) => {
-      return bookList.filter((item) => item.id == id).shift();
+    const callBook = (number) => {
+      return bookList.filter((book) => book.id == number).shift();
     };
   });
 }

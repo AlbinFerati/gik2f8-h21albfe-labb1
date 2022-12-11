@@ -8,15 +8,15 @@ const BookListItem = (book) => {
   return html;
 };
 
-const InfoBox = (book) => {
+const InfoBox = (bookData) => {
   const information = `<div id="bookInfo">
 
         <div>
-            <img src="${book.coverImage}" alt="${book.title}" width=10%/>
+            <img src="${bookData.coverImage}" alt="${bookData.title}" width=10%/>
         </div>
 
         <div >
-            <p> Title: ${book.title} Author: ${book.author} Pages: ${book.pages} Release date: ${book.releaseDate} </p>
+            <p> Title: ${bookData.title} Author: ${bookData.author} Pages: ${bookData.pages} Release date: ${bookData.releaseDate} </p>
         </div>
 
   </div>`;
